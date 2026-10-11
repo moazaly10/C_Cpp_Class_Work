@@ -1,0 +1,32 @@
+Problem 10.1 – Error Messages Produced by the Compiler
+
+(a) After commenting out 'using namespace std;'
+------------------------------------------------
+Errors:
+- ‘string’ was not declared in this scope.
+- ‘cout’ and ‘endl’ were not declared in this scope.
+
+Explanation:
+The identifiers 'string', 'cout', and 'endl' belong to the std namespace.
+By commenting out 'using namespace std;', the compiler cannot find them.
+Solution:
+Prefix these names with 'std::' (for example: std::cout, std::string).
+
+(b) After removing 'Critter::' prefix
+-------------------------------------
+Error:
+- ‘setHunger’ was not declared in this scope.
+
+Explanation:
+The compiler no longer recognizes 'setHunger' as a member of the Critter class.
+The scope resolution operator 'Critter::' tells the compiler that this function
+belongs to the Critter class. Without it, the definition becomes a standalone
+function unrelated to the class.
+
+Alternative Solution:
+Keep 'Critter::' for all member function definitions or define the method
+inside the class declaration directly.
+
+Conclusion:
+Both issues are related to missing scope resolution — one for namespaces (std)
+and one for class membership (Critter).
